@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg7qmshjidqts"]
+
+[ext_resource type="Script" path="res://scripts/laundry_object.gd" id="1_mlfk4"]
+
+[node name="laundryObject" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_mlfk4")

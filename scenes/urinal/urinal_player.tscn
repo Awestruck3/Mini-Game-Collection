@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqh5uq0l7s50w"]
+
+[ext_resource type="Texture2D" uid="uid://buvbi8vmrx2i4" path="res://assets/graphic/pee/mover.png" id="1_iytf0"]
+[ext_resource type="Script" path="res://scripts/urinal_player.gd" id="1_uu8ad"]
+[ext_resource type="Texture2D" uid="uid://e13yuuyymcd" path="res://assets/graphic/pee/peer.jpg" id="3_i588y"]
+[ext_resource type="Texture2D" uid="uid://cac3kab4o5w5a" path="res://assets/graphic/scare/scared.webp" id="4_jocbm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh6fl"]
+atlas = ExtResource("1_iytf0")
+region = Rect2(0, 0, 2500, 2937)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufvwp"]
+atlas = ExtResource("3_i588y")
+region = Rect2(0, 0, 408, 612)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7g8u"]
+atlas = ExtResource("4_jocbm")
+region = Rect2(0, 0, 1067, 1690)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pousa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh6fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufvwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7g8u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dam4b"]
+size = Vector2(48, 20)
+
+[node name="urinalPlayer" type="CharacterBody2D"]
+script = ExtResource("1_uu8ad")
+
+[node name="Mover" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 7.62939e-06)
+scale = Vector2(0.0384, 0.0490296)
+sprite_frames = SubResource("SpriteFrames_pousa")
+
+[node name="ppeeArea" type="Area2D" parent="."]
+
+[node name="peeShape" type="CollisionShape2D" parent="ppeeArea"]
+shape = SubResource("RectangleShape2D_dam4b")

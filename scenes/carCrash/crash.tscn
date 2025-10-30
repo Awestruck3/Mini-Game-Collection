@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://676v5adcnbje"]
+
+[ext_resource type="Script" path="res://scripts/crash.gd" id="1_bivkj"]
+[ext_resource type="Texture2D" uid="uid://nkagwj8h5ng6" path="res://assets/graphic/carCrash/crashPOVAlpha.png" id="1_nuub0"]
+[ext_resource type="Texture2D" uid="uid://pfluvv3431v8" path="res://assets/graphic/carCrash/carPOV.jpg" id="2_2q0em"]
+[ext_resource type="Texture2D" uid="uid://buvbi8vmrx2i4" path="res://assets/graphic/pee/mover.png" id="4_p7bt4"]
+[ext_resource type="PackedScene" uid="uid://knmsxymuw3xi" path="res://scenes/count_down.tscn" id="5_j3tgc"]
+
+[node name="crash" type="Node2D"]
+script = ExtResource("1_bivkj")
+
+[node name="CarPov" type="Sprite2D" parent="."]
+position = Vector2(0, 196)
+scale = Vector2(1.882, 3.01772)
+texture = ExtResource("2_2q0em")
+
+[node name="person" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-64, 8)
+scale = Vector2(0.013, 0.0167263)
+texture = ExtResource("4_p7bt4")
+
+[node name="car" type="Sprite2D" parent="."]
+position = Vector2(0, 70)
+scale = Vector2(1.88235, 1.31013)
+texture = ExtResource("1_nuub0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -41)
+zoom = Vector2(2.1, 1.5)
+
+[node name="personTimer" type="Timer" parent="."]
+
+[node name="stopButt" type="TextureButton" parent="."]
+offset_left = -592.0
+offset_top = -424.0
+offset_right = 632.0
+offset_bottom = 432.0
+
+[node name="countDown" parent="." instance=ExtResource("5_j3tgc")]
+offset_top = 288.0
+offset_bottom = 288.0
+scale = Vector2(3, 1)
+
+[node name="moveTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="personTimer" to="." method="_on_person_timer_timeout"]
+[connection signal="pressed" from="stopButt" to="." method="_on_stop_butt_pressed"]
+[connection signal="timeout" from="moveTimer" to="." method="_on_move_timer_timeout"]

@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://bt22t75p04h1f"]
+
+[ext_resource type="Script" path="res://scripts/laundry.gd" id="1_jtswv"]
+[ext_resource type="Texture2D" uid="uid://bf1i4v2hcnqfp" path="res://assets/graphic/laundryToss/laundryRoom.jpeg" id="1_qtfci"]
+[ext_resource type="Texture2D" uid="uid://duj25ug3g1ic4" path="res://assets/graphic/laundryToss/washingMachine.webp" id="2_y13ke"]
+[ext_resource type="Texture2D" uid="uid://due6ow0plnl0i" path="res://assets/graphic/laundryToss/laundrySource.jpg" id="5_4rd4k"]
+[ext_resource type="PackedScene" uid="uid://j41ncjt3a07g" path="res://scenes/laundry/player_hands.tscn" id="5_dnggh"]
+[ext_resource type="PackedScene" uid="uid://knmsxymuw3xi" path="res://scenes/count_down.tscn" id="6_t34jr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f5s8"]
+size = Vector2(82.3762, 26.8033)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgaro"]
+size = Vector2(625.69, 598.182)
+
+[node name="laundry" type="Node2D"]
+script = ExtResource("1_jtswv")
+
+[node name="LaundryRoom" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2.6226e-05, -3.8147e-06)
+scale = Vector2(2.37624, 1.3494)
+texture = ExtResource("1_qtfci")
+
+[node name="WashingMachine" type="Sprite2D" parent="LaundryRoom"]
+position = Vector2(-9.25, 21.8616)
+scale = Vector2(0.132692, 0.140274)
+texture = ExtResource("2_y13ke")
+
+[node name="Area2D" type="Area2D" parent="LaundryRoom/WashingMachine"]
+collision_layer = 2
+
+[node name="laundryHit" type="CollisionShape2D" parent="LaundryRoom/WashingMachine/Area2D"]
+position = Vector2(1.28713, -30.2049)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_0f5s8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 3)
+
+[node name="laundrySource" type="Sprite2D" parent="."]
+position = Vector2(161, 136)
+scale = Vector2(0.0644444, 0.0733333)
+texture = ExtResource("5_4rd4k")
+
+[node name="reloadArea" type="Area2D" parent="laundrySource"]
+
+[node name="reloadShape" type="CollisionShape2D" parent="laundrySource/reloadArea"]
+position = Vector2(59.5693, 28.182)
+shape = SubResource("RectangleShape2D_fgaro")
+
+[node name="playerHands" parent="." instance=ExtResource("5_dnggh")]
+position = Vector2(-8, 144)
+
+[node name="countDown" parent="." instance=ExtResource("6_t34jr")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 144.0
+offset_bottom = 144.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="reset" type="Timer" parent="."]
+
+[connection signal="area_entered" from="LaundryRoom/WashingMachine/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="LaundryRoom/WashingMachine/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="laundrySource/reloadArea" to="." method="_on_reload_area_body_entered"]
+[connection signal="timeout" from="reset" to="." method="_on_reset_timeout"]

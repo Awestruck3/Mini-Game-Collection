@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bslydv333pmbe"]
+
+[ext_resource type="Script" path="res://scripts/subway.gd" id="1_1pya5"]
+[ext_resource type="Texture2D" uid="uid://cdyyv3c4vwk8f" path="res://assets/graphic/subway/platform.jpg" id="1_8l768"]
+[ext_resource type="PackedScene" uid="uid://civo1yed000va" path="res://scenes/subway/train.tscn" id="2_r5ust"]
+[ext_resource type="PackedScene" uid="uid://knmsxymuw3xi" path="res://scenes/count_down.tscn" id="4_p78ej"]
+
+[node name="subway" type="Node2D"]
+script = ExtResource("1_1pya5")
+
+[node name="platform" type="Sprite2D" parent="."]
+scale = Vector2(1.92157, 1.44662)
+texture = ExtResource("1_8l768")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.7, 1.5)
+
+[node name="train" parent="." instance=ExtResource("2_r5ust")]
+position = Vector2(-1890, -96)
+scale = Vector2(0.25, 0.25)
+
+[node name="trainTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="boardButt" type="TextureButton" parent="."]
+offset_left = -624.0
+offset_top = -344.0
+offset_right = 640.0
+offset_bottom = 344.0
+
+[node name="endGameTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="countDown" parent="." instance=ExtResource("4_p78ej")]
+offset_top = 288.0
+offset_bottom = 288.0
+scale = Vector2(2.75, 1)
+
+[connection signal="timeout" from="trainTimer" to="." method="_on_train_timer_timeout"]
+[connection signal="pressed" from="boardButt" to="." method="_on_board_butt_pressed"]
+[connection signal="timeout" from="endGameTimer" to="." method="_on_end_game_timer_timeout"]

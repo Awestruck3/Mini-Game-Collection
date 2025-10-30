@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://baw4t25i0c3tg"]
+
+[ext_resource type="Script" path="res://scripts/urinal.gd" id="1_toc6b"]
+[ext_resource type="Texture2D" uid="uid://cafbd46wsfuaq" path="res://assets/graphic/pee/urinal.jpg" id="2_ql853"]
+[ext_resource type="PackedScene" uid="uid://cqh5uq0l7s50w" path="res://scenes/urinal/urinal_player.tscn" id="3_82bah"]
+[ext_resource type="PackedScene" uid="uid://knmsxymuw3xi" path="res://scenes/count_down.tscn" id="4_ognj6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n302v"]
+size = Vector2(33, 18)
+
+[node name="urinal" type="Node2D"]
+script = ExtResource("1_toc6b")
+
+[node name="Urinal" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_ql853")
+
+[node name="urinalPlayer" parent="." instance=ExtResource("3_82bah")]
+position = Vector2(-328, 80)
+
+[node name="urinalHitboxes" type="CanvasGroup" parent="."]
+
+[node name="urinalArea" type="Area2D" parent="urinalHitboxes"]
+
+[node name="urinal1" type="CollisionShape2D" parent="urinalHitboxes/urinalArea"]
+position = Vector2(246.5, 89)
+shape = SubResource("RectangleShape2D_n302v")
+
+[node name="urinal2" type="CollisionShape2D" parent="urinalHitboxes/urinalArea"]
+position = Vector2(-48, 88)
+shape = SubResource("RectangleShape2D_n302v")
+
+[node name="urinal3" type="CollisionShape2D" parent="urinalHitboxes/urinalArea"]
+position = Vector2(48, 88)
+shape = SubResource("RectangleShape2D_n302v")
+
+[node name="urinal4" type="CollisionShape2D" parent="urinalHitboxes/urinalArea"]
+position = Vector2(144, 88)
+shape = SubResource("RectangleShape2D_n302v")
+
+[node name="urinal5" type="CollisionShape2D" parent="urinalHitboxes/urinalArea"]
+position = Vector2(-248, 88)
+shape = SubResource("RectangleShape2D_n302v")
+
+[node name="urinal6" type="CollisionShape2D" parent="urinalHitboxes/urinalArea"]
+position = Vector2(-144, 88)
+shape = SubResource("RectangleShape2D_n302v")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3.1, 2.5)
+
+[node name="peeButt" type="TextureButton" parent="."]
+offset_left = -296.0
+offset_top = -168.0
+offset_right = 296.0
+offset_bottom = 176.0
+
+[node name="countDown" parent="." instance=ExtResource("4_ognj6")]
+z_index = 6
+offset_top = 136.0
+offset_bottom = 136.0
+
+[node name="menuTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="area_entered" from="urinalHitboxes/urinalArea" to="." method="_on_urinal_area_area_entered"]
+[connection signal="area_exited" from="urinalHitboxes/urinalArea" to="." method="_on_urinal_area_area_exited"]
+[connection signal="pressed" from="peeButt" to="." method="_on_pee_butt_pressed"]
+[connection signal="timeout" from="menuTimer" to="." method="_on_menu_timer_timeout"]

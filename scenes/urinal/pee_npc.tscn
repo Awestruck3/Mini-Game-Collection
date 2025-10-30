@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgts6kc137efy"]
+
+[ext_resource type="Script" path="res://scripts/pee_npc.gd" id="1_0updx"]
+[ext_resource type="Texture2D" uid="uid://e13yuuyymcd" path="res://assets/graphic/pee/peer.jpg" id="1_yirl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_micq1"]
+size = Vector2(96, 264)
+
+[node name="peeNPC" type="CharacterBody2D"]
+script = ExtResource("1_0updx")
+
+[node name="Peer" type="Sprite2D" parent="."]
+scale = Vector2(0.29902, 0.45915)
+texture = ExtResource("1_yirl0")
+
+[node name="peeArea" type="Area2D" parent="."]
+
+[node name="peeShape" type="CollisionShape2D" parent="peeArea"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_micq1")
+
+[connection signal="area_entered" from="peeArea" to="." method="_on_pee_area_area_entered"]
+[connection signal="area_shape_exited" from="peeArea" to="." method="_on_pee_area_area_shape_exited"]

@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://civo1yed000va"]
+
+[ext_resource type="Script" path="res://scripts/train.gd" id="1_lt3ju"]
+[ext_resource type="Texture2D" uid="uid://ycq2nw4so2xm" path="res://assets/graphic/subway/closedTrain.jpg" id="1_ouo5p"]
+[ext_resource type="Texture2D" uid="uid://dnkhkcfs85bp0" path="res://assets/graphic/subway/openTrain.jpg" id="2_k3eub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjmfd"]
+atlas = ExtResource("1_ouo5p")
+region = Rect2(0, 0, 1500, 1101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmqlu"]
+atlas = ExtResource("2_k3eub")
+region = Rect2(0, 0, 1300, 956)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xg5jo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjmfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmqlu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="train" type="CharacterBody2D"]
+script = ExtResource("1_lt3ju")
+
+[node name="trainCars" type="CanvasGroup" parent="."]
+
+[node name="train" type="AnimatedSprite2D" parent="trainCars"]
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train8" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(-6000, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train9" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(-9000, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train14" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(-18000, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train15" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(-16500, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train16" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(-15000, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train17" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(-13500, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train18" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(-12000, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train19" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(-10500, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train10" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(9000, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train11" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(-7500, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train12" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(7500, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train13" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(6000, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train2" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(-1500, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train3" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(-4500, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train4" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(4500, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train5" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(3000, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train6" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(1500, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")
+
+[node name="train7" type="AnimatedSprite2D" parent="trainCars"]
+position = Vector2(-3000, 0)
+sprite_frames = SubResource("SpriteFrames_xg5jo")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c21jyq66qf4l0"]
+
+[ext_resource type="Script" path="res://scripts/whack_a_mole.gd" id="1_xhmgs"]
+[ext_resource type="Texture2D" uid="uid://cwxpi0kjmi67u" path="res://assets/graphic/mole/grassBackground.jpg" id="2_axams"]
+[ext_resource type="PackedScene" uid="uid://knmsxymuw3xi" path="res://scenes/count_down.tscn" id="3_uxfsg"]
+
+[node name="whackAMoleAlt" type="Node2D"]
+script = ExtResource("1_xhmgs")
+
+[node name="GrassBackground" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(577, 324.5)
+scale = Vector2(1.80625, 1.35208)
+texture = ExtResource("2_axams")
+
+[node name="countDown" parent="." instance=ExtResource("3_uxfsg")]
+offset_left = 576.0
+offset_top = 608.0
+offset_right = 576.0
+offset_bottom = 608.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 324.5)
+zoom = Vector2(1.7, 1.7)

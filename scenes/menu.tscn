@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhj8pkao61c1l"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_eutyp"]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_eutyp")
+
+[node name="score" type="RichTextLabel" parent="."]
+offset_left = -456.0
+offset_top = -304.0
+offset_right = -232.0
+offset_bottom = -240.0
+
+[node name="mole" type="Button" parent="."]
+offset_left = -264.0
+offset_top = -295.0
+offset_right = 264.0
+offset_bottom = -258.0
+text = "Whack-A-Mole"
+
+[node name="laundry" type="Button" parent="."]
+offset_left = -264.0
+offset_top = -251.0
+offset_right = 264.0
+offset_bottom = -214.0
+text = "Laundry"
+
+[node name="urinal" type="Button" parent="."]
+offset_left = -264.0
+offset_top = -208.0
+offset_right = 264.0
+offset_bottom = -171.0
+text = "Urinal"
+
+[node name="scare" type="Button" parent="."]
+offset_left = -264.0
+offset_top = -163.0
+offset_right = 264.0
+offset_bottom = -126.0
+text = "Scare"
+
+[node name="align" type="Button" parent="."]
+offset_left = -264.0
+offset_top = -122.0
+offset_right = 264.0
+offset_bottom = -85.0
+text = "Align"
+
+[node name="channel" type="Button" parent="."]
+offset_left = -264.0
+offset_top = -75.0
+offset_right = 264.0
+offset_bottom = -38.0
+text = "Change Channel"
+
+[node name="subway" type="Button" parent="."]
+offset_left = -264.0
+offset_top = -33.0
+offset_right = 264.0
+offset_bottom = 4.0
+text = "Subway"
+
+[node name="crash" type="Button" parent="."]
+offset_left = -264.0
+offset_top = 8.0
+offset_right = 264.0
+offset_bottom = 45.0
+text = "Crash"
+
+[node name="randomGames" type="Button" parent="."]
+offset_left = -264.0
+offset_top = 52.0
+offset_right = 264.0
+offset_bottom = 89.0
+text = "Play Random Games
+"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -82)
+zoom = Vector2(2, 2)
+
+[connection signal="pressed" from="mole" to="." method="_on_mole_pressed"]
+[connection signal="pressed" from="laundry" to="." method="_on_laundry_pressed"]
+[connection signal="pressed" from="urinal" to="." method="_on_urinal_pressed"]
+[connection signal="pressed" from="scare" to="." method="_on_scare_pressed"]
+[connection signal="pressed" from="align" to="." method="_on_align_pressed"]
+[connection signal="pressed" from="channel" to="." method="_on_channel_pressed"]
+[connection signal="pressed" from="subway" to="." method="_on_subway_pressed"]
+[connection signal="pressed" from="crash" to="." method="_on_crash_pressed"]
+[connection signal="pressed" from="randomGames" to="." method="_on_random_games_pressed"]

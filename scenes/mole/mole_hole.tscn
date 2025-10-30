@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://cexsj85nfnhil"]
+
+[ext_resource type="Script" path="res://scripts/mole_hole.gd" id="1_qugqd"]
+[ext_resource type="Texture2D" uid="uid://droi6mn8ttmry" path="res://assets/graphic/mole/moleHole.jpg" id="2_lrmhs"]
+[ext_resource type="Texture2D" uid="uid://dmpdkcot6acmu" path="res://assets/graphic/mole/Mole.jpg" id="3_copew"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ovba"]
+atlas = ExtResource("2_lrmhs")
+region = Rect2(0, 0, 1024, 684)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iukp"]
+atlas = ExtResource("3_copew")
+region = Rect2(0, 0, 999, 614)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mofw4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ovba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iukp")
+}],
+"loop": true,
+"name": &"mole",
+"speed": 5.0
+}]
+
+[node name="moleHole" type="Node2D"]
+script = ExtResource("1_qugqd")
+
+[node name="moleHoleSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mofw4")
+animation = &"mole"
+frame = 1
+frame_progress = 0.911183
+
+[node name="moleSwapTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="hitMole" type="TextureButton" parent="."]
+offset_left = -498.0
+offset_top = -308.0
+offset_right = 494.0
+offset_bottom = 302.0
+
+[node name="altTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[connection signal="timeout" from="moleSwapTimer" to="." method="_on_mole_swap_timer_timeout"]
+[connection signal="pressed" from="hitMole" to="." method="_on_hit_mole_pressed"]
+[connection signal="timeout" from="altTimer" to="." method="_on_alt_timer_timeout"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://j41ncjt3a07g"]
+
+[ext_resource type="Texture2D" uid="uid://pph48y07hpjj" path="res://assets/graphic/laundryToss/holdHands.jpg" id="1_jecmt"]
+[ext_resource type="Texture2D" uid="uid://bebj6dkehohke" path="res://assets/graphic/laundryToss/throwHandsNew.jpg" id="2_q068j"]
+[ext_resource type="Script" path="res://scripts/player_hands.gd" id="3_r4q0c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa6ah"]
+atlas = ExtResource("1_jecmt")
+region = Rect2(0, 0, 612, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xllr1"]
+atlas = ExtResource("2_q068j")
+region = Rect2(0, 0, 612, 439)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i8k50"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa6ah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xllr1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pn6bf"]
+size = Vector2(112, 64)
+
+[node name="playerHands" type="CharacterBody2D"]
+
+[node name="playerHands" type="AnimatedSprite2D" parent="."]
+position = Vector2(9.09495e-13, 1.52588e-05)
+scale = Vector2(0.186275, 0.186275)
+sprite_frames = SubResource("SpriteFrames_i8k50")
+script = ExtResource("3_r4q0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_pn6bf")
