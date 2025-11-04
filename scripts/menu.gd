@@ -44,3 +44,11 @@ func _on_channel_pressed() -> void:
 func _on_crash_pressed() -> void:
 	ScreenBus.randomGames = false
 	ScreenBus.changeScene("crash")
+
+func _on_smile_pressed() -> void:
+	ScreenBus.randomGames = false
+	ScreenBus.changeScene("smile")
+
+func _on_golf_pressed() -> void:
+	ScreenBus.randomGames = false
+	ScreenBus.changeScene("golf")

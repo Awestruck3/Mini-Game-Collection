@@ -2,12 +2,12 @@ extends Node
 
 var randomGames = false
 var gamesIdx = 0
-var maxGames = 8
+var maxGames = 10
 
 var linedUpGames = []
 
 #ALERT update all games every time a mini-game is finished
-var allGames = ["mole", "laundry", "urine", "scare", "align", "channel", "subway", "crash"]
+var allGames = ["mole", "laundry", "urine", "scare", "align", "channel", "subway", "crash", "smile", "golf"]
 
 func _ready() -> void:
 	shuffleGames()
@@ -31,6 +31,11 @@ func changeScene(scene: String):
 		get_tree().change_scene_to_file("res://scenes/subway/subway.tscn")
 	elif(scene == "crash"):
 		get_tree().change_scene_to_file("res://scenes/carCrash/crash.tscn")
+	elif(scene == "smile"):
+		get_tree().change_scene_to_file("res://scenes/smile/smile.tscn")
+	elif(scene == "golf"):
+		get_tree().change_scene_to_file("res://scenes/golf/golf.tscn")
+
 
 func nextRandomGame():
 	print(gamesIdx)

@@ -10,7 +10,7 @@ var laundIdx = 0
 func _ready() -> void:
 	pass 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if(slideRight == true):
 		$playerHands.velocity.x = 3000 / PlayerStats.speed
 		if($playerHands.position.x >= 185):

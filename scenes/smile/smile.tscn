@@ -1,0 +1,109 @@
+[gd_scene load_steps=10 format=3 uid="uid://crsu1dtnqkh50"]
+
+[ext_resource type="Texture2D" uid="uid://bgvp1buy2ljj4" path="res://assets/graphic/smile/camereaLens.png" id="1_087lo"]
+[ext_resource type="Texture2D" uid="uid://cwxpi0kjmi67u" path="res://assets/graphic/mole/grassBackground.jpg" id="1_kci70"]
+[ext_resource type="Script" path="res://scripts/smile.gd" id="1_v22ek"]
+[ext_resource type="Texture2D" uid="uid://chwftplkmy3go" path="res://assets/graphic/smile/frown.jpg" id="2_w0xju"]
+[ext_resource type="Texture2D" uid="uid://by7qpn8ctjbkg" path="res://assets/graphic/smile/smile.jpg" id="3_0laua"]
+[ext_resource type="PackedScene" uid="uid://knmsxymuw3xi" path="res://scenes/count_down.tscn" id="6_f31gt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlk5a"]
+atlas = ExtResource("2_w0xju")
+region = Rect2(0, 0, 612, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tly6"]
+atlas = ExtResource("3_0laua")
+region = Rect2(0, 0, 400, 580)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuu1u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlk5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tly6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="smile" type="Node2D"]
+script = ExtResource("1_v22ek")
+
+[node name="GrassBackground" type="Sprite2D" parent="."]
+position = Vector2(-7.99998, 28)
+scale = Vector2(3.825, 2.28333)
+texture = ExtResource("1_kci70")
+
+[node name="target" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_tuu1u")
+frame_progress = 0.997311
+
+[node name="lens" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_087lo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="shutterTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="faceResetTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="topShutter" type="ColorRect" parent="."]
+offset_left = -1272.0
+offset_top = -1611.0
+offset_right = 1264.0
+offset_bottom = -531.0
+color = Color(0, 0, 0, 1)
+
+[node name="bottomShutter" type="ColorRect" parent="."]
+offset_left = -1272.0
+offset_top = 584.0
+offset_right = 1264.0
+offset_bottom = 1584.0
+color = Color(0, 0, 0, 1)
+
+[node name="smileButt" type="TextureButton" parent="."]
+offset_left = -1456.0
+offset_top = -632.0
+offset_right = 1472.0
+offset_bottom = 704.0
+
+[node name="faceRefractory" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="countDown" parent="." instance=ExtResource("6_f31gt")]
+offset_top = 480.0
+offset_bottom = 480.0
+scale = Vector2(5, 1)
+
+[node name="textCD" type="Label" parent="."]
+offset_left = -760.0
+offset_top = -240.0
+offset_right = -639.0
+offset_bottom = -157.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+
+[node name="accuracyCount" type="Label" parent="."]
+offset_left = -824.0
+offset_top = -32.0
+offset_right = -616.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+
+[node name="gameOverTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="shutterTimer" to="." method="_on_shutter_timer_timeout"]
+[connection signal="timeout" from="faceResetTimer" to="." method="_on_face_reset_timer_timeout"]
+[connection signal="pressed" from="smileButt" to="." method="_on_smile_butt_pressed"]
+[connection signal="timeout" from="faceRefractory" to="." method="_on_face_refractory_timeout"]
+[connection signal="timeout" from="gameOverTimer" to="." method="_on_game_over_timer_timeout"]
