@@ -1,0 +1,270 @@
+[gd_scene load_steps=22 format=3 uid="uid://dho5shrhuc3kk"]
+
+[ext_resource type="Script" path="res://scripts/fast_food.gd" id="1_hlsq8"]
+[ext_resource type="Texture2D" uid="uid://cbkvsep3e1qlr" path="res://assets/graphic/fastfood/food.jpg" id="2_ufcd2"]
+[ext_resource type="Texture2D" uid="uid://34p4ek1uffv7" path="res://assets/graphic/fastfood/order.jpg" id="3_l7iyp"]
+[ext_resource type="Texture2D" uid="uid://cyy41aels4dgj" path="res://assets/graphic/fastfood/knows.jpg" id="4_6ucby"]
+[ext_resource type="Texture2D" uid="uid://cf0ktstmgu3jb" path="res://assets/graphic/fastfood/dinerPOV.jpg" id="5_qjra3"]
+[ext_resource type="Texture2D" uid="uid://erm2hhl8hds0" path="res://assets/graphic/fastfood/idea.png" id="5_ytwbs"]
+[ext_resource type="Texture2D" uid="uid://bfmamf82ts5y0" path="res://assets/graphic/fastfood/counter.png" id="6_1x0uy"]
+[ext_resource type="PackedScene" uid="uid://knmsxymuw3xi" path="res://scenes/count_down.tscn" id="8_lgawu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kilpu"]
+atlas = ExtResource("3_l7iyp")
+region = Rect2(0, 0, 612, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7372r"]
+atlas = ExtResource("4_6ucby")
+region = Rect2(0, 0, 1300, 956)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0snk3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kilpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7372r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1we06"]
+atlas = ExtResource("2_ufcd2")
+region = Rect2(0, 120, 256, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55lw0"]
+atlas = ExtResource("2_ufcd2")
+region = Rect2(256, 520, 256, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfsnl"]
+atlas = ExtResource("2_ufcd2")
+region = Rect2(0, 520, 256, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne81w"]
+atlas = ExtResource("2_ufcd2")
+region = Rect2(253, 121, 207, 223)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnewk"]
+atlas = ExtResource("2_ufcd2")
+region = Rect2(460, 121, 207, 223)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w0xq"]
+atlas = ExtResource("2_ufcd2")
+region = Rect2(0, 323, 235, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_631ht"]
+atlas = ExtResource("2_ufcd2")
+region = Rect2(507, 311, 242, 190)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7jasb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1we06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55lw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfsnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne81w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnewk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w0xq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_631ht")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mp1i2"]
+size = Vector2(227.555, 165.517)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w83sx"]
+size = Vector2(262.857, 205.714)
+
+[node name="fastFood" type="Node2D"]
+script = ExtResource("1_hlsq8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="DinerPov" type="Sprite2D" parent="."]
+position = Vector2(-4, -7.99995)
+scale = Vector2(4.03922, 2.86275)
+texture = ExtResource("5_qjra3")
+
+[node name="peopleGroup" type="CanvasGroup" parent="."]
+
+[node name="orderer" type="AnimatedSprite2D" parent="peopleGroup"]
+position = Vector2(-624, 96)
+sprite_frames = SubResource("SpriteFrames_0snk3")
+frame_progress = 0.998821
+
+[node name="orderer2" type="AnimatedSprite2D" parent="peopleGroup"]
+position = Vector2(0, 96)
+sprite_frames = SubResource("SpriteFrames_0snk3")
+frame_progress = 0.998821
+
+[node name="orderer3" type="AnimatedSprite2D" parent="peopleGroup"]
+position = Vector2(624, 96)
+sprite_frames = SubResource("SpriteFrames_0snk3")
+frame_progress = 0.998821
+
+[node name="bubbles" type="CanvasGroup" parent="."]
+
+[node name="idea1" type="Sprite2D" parent="bubbles"]
+position = Vector2(-875, -152.25)
+scale = Vector2(1.7, 1.658)
+texture = ExtResource("5_ytwbs")
+
+[node name="idea2" type="Sprite2D" parent="bubbles"]
+position = Vector2(-250, -152.25)
+scale = Vector2(1.7, 1.658)
+texture = ExtResource("5_ytwbs")
+
+[node name="idea3" type="Sprite2D" parent="bubbles"]
+position = Vector2(376, -152.25)
+scale = Vector2(1.7, 1.658)
+texture = ExtResource("5_ytwbs")
+
+[node name="ideaFood" type="CanvasGroup" parent="."]
+
+[node name="ideaFood1" type="AnimatedSprite2D" parent="ideaFood"]
+position = Vector2(-888, -168)
+scale = Vector2(0.5625, 0.58)
+sprite_frames = SubResource("SpriteFrames_7jasb")
+
+[node name="foodArea" type="Area2D" parent="ideaFood/ideaFood1"]
+
+[node name="foodAreaC" type="CollisionShape2D" parent="ideaFood/ideaFood1/foodArea"]
+position = Vector2(-0.00012207, 0)
+shape = SubResource("RectangleShape2D_mp1i2")
+
+[node name="ideaFood2" type="AnimatedSprite2D" parent="ideaFood"]
+position = Vector2(-256, -168)
+scale = Vector2(0.5625, 0.58)
+sprite_frames = SubResource("SpriteFrames_7jasb")
+
+[node name="foodArea" type="Area2D" parent="ideaFood/ideaFood2"]
+
+[node name="foodAreaC" type="CollisionShape2D" parent="ideaFood/ideaFood2/foodArea"]
+position = Vector2(-0.00012207, 0)
+shape = SubResource("RectangleShape2D_mp1i2")
+
+[node name="ideaFood3" type="AnimatedSprite2D" parent="ideaFood"]
+position = Vector2(367, -168)
+scale = Vector2(0.5625, 0.58)
+sprite_frames = SubResource("SpriteFrames_7jasb")
+
+[node name="foodArea" type="Area2D" parent="ideaFood/ideaFood3"]
+
+[node name="foodAreaC" type="CollisionShape2D" parent="ideaFood/ideaFood3/foodArea"]
+position = Vector2(-0.00012207, 0)
+shape = SubResource("RectangleShape2D_mp1i2")
+
+[node name="Counter" type="Sprite2D" parent="."]
+scale = Vector2(4.039, 2.863)
+texture = ExtResource("6_1x0uy")
+
+[node name="foodGroup" type="CanvasGroup" parent="."]
+position = Vector2(0, -148)
+
+[node name="foods7" type="AnimatedSprite2D" parent="foodGroup"]
+position = Vector2(-635, 480)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_7jasb")
+
+[node name="select" type="Area2D" parent="foodGroup/foods7"]
+
+[node name="selectC" type="CollisionShape2D" parent="foodGroup/foods7/select"]
+position = Vector2(-1.42853, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w83sx")
+
+[node name="foods8" type="AnimatedSprite2D" parent="foodGroup"]
+position = Vector2(-435, 480)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_7jasb")
+
+[node name="select" type="Area2D" parent="foodGroup/foods8"]
+
+[node name="selectC" type="CollisionShape2D" parent="foodGroup/foods8/select"]
+position = Vector2(-1.42853, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w83sx")
+
+[node name="foods2" type="AnimatedSprite2D" parent="foodGroup"]
+position = Vector2(-235, 480)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_7jasb")
+
+[node name="select" type="Area2D" parent="foodGroup/foods2"]
+
+[node name="selectC" type="CollisionShape2D" parent="foodGroup/foods2/select"]
+position = Vector2(-1.42853, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w83sx")
+
+[node name="foods3" type="AnimatedSprite2D" parent="foodGroup"]
+position = Vector2(-23, 480)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_7jasb")
+
+[node name="select" type="Area2D" parent="foodGroup/foods3"]
+
+[node name="selectC" type="CollisionShape2D" parent="foodGroup/foods3/select"]
+position = Vector2(-1.42853, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w83sx")
+
+[node name="foods4" type="AnimatedSprite2D" parent="foodGroup"]
+position = Vector2(177, 480)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_7jasb")
+
+[node name="select" type="Area2D" parent="foodGroup/foods4"]
+
+[node name="selectC" type="CollisionShape2D" parent="foodGroup/foods4/select"]
+position = Vector2(-1.42853, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w83sx")
+
+[node name="foods5" type="AnimatedSprite2D" parent="foodGroup"]
+position = Vector2(377, 480)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_7jasb")
+
+[node name="select" type="Area2D" parent="foodGroup/foods5"]
+
+[node name="selectC" type="CollisionShape2D" parent="foodGroup/foods5/select"]
+position = Vector2(-1.42853, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w83sx")
+
+[node name="foods6" type="AnimatedSprite2D" parent="foodGroup"]
+position = Vector2(572, 480)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_7jasb")
+
+[node name="select" type="Area2D" parent="foodGroup/foods6"]
+
+[node name="selectC" type="CollisionShape2D" parent="foodGroup/foods6/select"]
+position = Vector2(-1.42853, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w83sx")
+
+[node name="countDown" parent="." instance=ExtResource("8_lgawu")]
+offset_top = 442.0
+offset_bottom = 442.0
+scale = Vector2(4, 1)

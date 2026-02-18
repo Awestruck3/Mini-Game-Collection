@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://btdfwto6caxcw"]
+
+[ext_resource type="Script" path="res://scripts/story_menu.gd" id="1_4ddyk"]
+
+[node name="storyMenu" type="Node2D"]
+script = ExtResource("1_4ddyk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="storyButt" type="Button" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -432.0
+offset_right = -200.0
+offset_bottom = -401.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+text = "Begin Story"
+
+[node name="fullGamesButt" type="Button" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = 229.0
+offset_right = -200.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+text = "Full Games Menu"
+
+[connection signal="pressed" from="storyButt" to="." method="_on_story_butt_pressed"]
+[connection signal="pressed" from="fullGamesButt" to="." method="_on_full_games_butt_pressed"]

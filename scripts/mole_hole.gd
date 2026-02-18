@@ -42,7 +42,11 @@ func _on_hit_mole_pressed() -> void:
 	else:
 		if($moleHoleSprite.frame == 1):
 			PlayerStats.score += 1
+			$moleHoleSprite.frame = 0
 			if(ScreenBus.randomGames and ScreenBus.gamesIdx < ScreenBus.maxGames):
+				var cd = get_parent().get_node("countDown/ProgressBar")
+				print(cd.value)
+				cd.value = PlayerStats.speed
 				ScreenBus.nextRandomGame()
 			else:
 				ScreenBus.changeScene("menu")

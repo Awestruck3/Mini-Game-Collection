@@ -9,16 +9,12 @@ script = ExtResource("1_xhmgs")
 
 [node name="GrassBackground" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(577, 324.5)
 scale = Vector2(1.80625, 1.35208)
 texture = ExtResource("2_axams")
 
 [node name="countDown" parent="." instance=ExtResource("3_uxfsg")]
-offset_left = 576.0
-offset_top = 608.0
-offset_right = 576.0
-offset_bottom = 608.0
+offset_top = 279.0
+offset_bottom = 279.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(577, 324.5)
 zoom = Vector2(1.7, 1.7)

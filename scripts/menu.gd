@@ -52,3 +52,19 @@ func _on_smile_pressed() -> void:
 func _on_golf_pressed() -> void:
 	ScreenBus.randomGames = false
 	ScreenBus.changeScene("golf")
+
+func _on_job_pressed() -> void:
+	ScreenBus.randomGames = false
+	ScreenBus.changeScene("job")
+
+func _on_fast_food_pressed() -> void:
+	ScreenBus.randomGames = false
+	ScreenBus.changeScene("fastFood")
+
+func _on_wake_pressed() -> void:
+	ScreenBus.randomGames = false
+	ScreenBus.changeScene("wake")
+
+func _on_story_butt_pressed() -> void:
+	ScreenBus.randomGames = false
+	ScreenBus.changeScene("storyMenu")

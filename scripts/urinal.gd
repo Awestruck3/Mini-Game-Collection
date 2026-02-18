@@ -37,8 +37,5 @@ func _on_urinal_area_area_exited(area: Area2D) -> void:
 		onPoint = false
 
 func _on_menu_timer_timeout() -> void:
-	if(ScreenBus.randomGames and ScreenBus.gamesIdx < ScreenBus.maxGames):
-		print(ScreenBus.gamesIdx)
-		ScreenBus.nextRandomGame()
-	else:
-		ScreenBus.changeScene("menu")
+	$countDown/ProgressBar.value = PlayerStats.speed
+	ScreenBus.inGameNextRand()

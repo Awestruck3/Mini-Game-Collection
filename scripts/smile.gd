@@ -16,7 +16,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	currTime = Time.get_ticks_msec()
 	elapsedTime = (currTime - startTimeMsec) / 1000
-	print(elapsedTime)
 	if(elapsedTime > -0.5 and elapsedTime < -0.3):
 		$textCD.text = "3"
 	elif(elapsedTime > -0.3 and elapsedTime < -0.1):
@@ -56,14 +55,11 @@ func _on_face_reset_timer_timeout() -> void:
 
 func _on_face_refractory_timeout() -> void:
 	smiling = false
-	print("smile")
 
 func _on_shutter_timer_timeout() -> void:
 	moveShutters = true
 	$gameOverTimer.start()
 
 func _on_game_over_timer_timeout() -> void:
-	if(ScreenBus.randomGames and ScreenBus.gamesIdx < ScreenBus.maxGames):
-			ScreenBus.nextRandomGame()
-	else:
-		ScreenBus.changeScene("menu")
+	$countDown/ProgressBar.value = PlayerStats.speed
+	ScreenBus.inGameNextRand()

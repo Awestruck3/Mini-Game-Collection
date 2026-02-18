@@ -45,7 +45,5 @@ func _on_board_butt_pressed() -> void:
 	$endGameTimer.start()
 
 func _on_end_game_timer_timeout() -> void:
-	if(ScreenBus.randomGames and ScreenBus.gamesIdx < ScreenBus.maxGames):
-		ScreenBus.nextRandomGame()
-	else:
-		ScreenBus.changeScene("menu")
+	$countDown/ProgressBar.value = PlayerStats.speed
+	ScreenBus.inGameNextRand()

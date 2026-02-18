@@ -34,12 +34,14 @@ func _on_scare_butt_pressed() -> void:
 		$urinalPlayer.inMovement = false
 		PlayerStats.score += 1
 		$menuTiemr.start()
+	else:
+		$urinalPlayer/Mover.frame = 2
+		#TODO Get a disappointed looking frame here
+		$menuTiemr.start()
 
 func _on_hand_reset_timer_timeout() -> void:
 	$playerHands/playerHands.frame = 0
 
 func _on_menu_tiemr_timeout() -> void:
-	if(ScreenBus.randomGames and ScreenBus.gamesIdx < ScreenBus.maxGames):
-		ScreenBus.nextRandomGame()
-	else:
-		ScreenBus.changeScene("menu")
+	$countDown/ProgressBar.value = PlayerStats.speed
+	ScreenBus.inGameNextRand()

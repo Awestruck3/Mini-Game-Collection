@@ -66,7 +66,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if(area.name == "laundryArea"):
 		if(area.get_parent().comingDown == true):
 			PlayerStats.score += 1
-			if(ScreenBus.randomGames == true):
+			$countDown/ProgressBar.value = PlayerStats.speed
+			if(ScreenBus.randomGames == true and ScreenBus.gamesIdx < ScreenBus.maxGames):
 				ScreenBus.nextRandomGame()
 			else:
 				ScreenBus.changeScene("menu")

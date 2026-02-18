@@ -55,7 +55,9 @@ func _on_stop_butt_pressed() -> void:
 	brake = true
 
 func _on_move_timer_timeout() -> void:
-	if(ScreenBus.randomGames and ScreenBus.gamesIdx < ScreenBus.maxGames):
-		ScreenBus.nextRandomGame()
-	else:
-		ScreenBus.changeScene("menu")
+	$countDown/ProgressBar.value = PlayerStats.speed
+	ScreenBus.inGameNextRand()
+	#if(ScreenBus.randomGames and ScreenBus.gamesIdx < ScreenBus.maxGames):
+		#ScreenBus.nextRandomGame()
+	#else:
+		#ScreenBus.changeScene("menu")

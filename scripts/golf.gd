@@ -5,12 +5,7 @@ var ballHit = false
 var arrowMoveDown = true
 var clubComeDown = false
 
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if(arrowMove):
 		if(arrowMoveDown):
 			$arrow.rotation_degrees += 3
@@ -29,11 +24,12 @@ func swingAni():
 		if($club.rotation_degrees >= 40):
 			clubComeDown = true
 	if(clubComeDown):
-		$club.rotation_degrees -= 4
+		$club.rotation_degrees -= 20
 		if($club.rotation_degrees <= -45):
+			$club.position += Vector2(-2,-2)
 			var velox = $arrow.rotation + 1 * 1000 #TECHNICALLY this means the ball goes faster if the arrow is pointing down but it's minimal
 			var veloy = $arrow.rotation * 1000
-			ballHit = false
+			#ballHit = false
 			if($arrow.rotation < 0):
 				veloy += 100
 			$ball.velocity.x = velox

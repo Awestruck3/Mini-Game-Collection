@@ -8,10 +8,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if($ProgressBar.value == 0):
 		$countDownTimer.stop()
-		if(ScreenBus.randomGames and ScreenBus.gamesIdx < ScreenBus.maxGames):
+		if(ScreenBus.randomGames and ScreenBus.gamesIdx < ScreenBus.maxGames-1):
 			ScreenBus.nextRandomGame()
 		else:
 			ScreenBus.changeScene("menu")
+		$ProgressBar.value = PlayerStats.speed
 
 
 func _on_count_down_timer_timeout() -> void:

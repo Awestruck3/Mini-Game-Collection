@@ -62,6 +62,7 @@ offset_bottom = 136.0
 
 [node name="menuTimer" type="Timer" parent="."]
 wait_time = 0.5
+one_shot = true
 
 [connection signal="area_entered" from="urinalHitboxes/urinalArea" to="." method="_on_urinal_area_area_entered"]
 [connection signal="area_exited" from="urinalHitboxes/urinalArea" to="." method="_on_urinal_area_area_exited"]

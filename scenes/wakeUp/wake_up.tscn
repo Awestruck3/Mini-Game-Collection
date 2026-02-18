@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://c12ao6qoc1fbt"]
+
+[ext_resource type="Texture2D" uid="uid://bjimdobd0bd5v" path="res://assets/graphic/wakeup/room.webp" id="1_41svp"]
+[ext_resource type="Script" path="res://scripts/wake_up.gd" id="1_n026u"]
+[ext_resource type="Texture2D" uid="uid://b4rqjcsax0amk" path="res://assets/graphic/wakeup/clock.jpg" id="2_7pf6j"]
+[ext_resource type="Texture2D" uid="uid://btaihgu4mu23y" path="res://assets/graphic/wakeup/sleep.jpeg" id="3_qmidf"]
+[ext_resource type="Texture2D" uid="uid://bp5m3vj0xby4f" path="res://assets/graphic/wakeup/wakingup.jpg" id="4_4lhdt"]
+[ext_resource type="PackedScene" uid="uid://knmsxymuw3xi" path="res://scenes/count_down.tscn" id="6_05tgf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk1wp"]
+atlas = ExtResource("3_qmidf")
+region = Rect2(0, 0, 3000, 2001)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oa7h"]
+atlas = ExtResource("4_4lhdt")
+region = Rect2(0, 0, 1300, 957)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6q7b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dk1wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2oa7h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="wakeUp" type="Node2D"]
+script = ExtResource("1_n026u")
+
+[node name="room" type="Sprite2D" parent="."]
+position = Vector2(3.99995, 195)
+scale = Vector2(1.228, 1)
+texture = ExtResource("1_41svp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="clock" type="Sprite2D" parent="."]
+position = Vector2(-432, -336)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_7pf6j")
+
+[node name="person" type="AnimatedSprite2D" parent="."]
+position = Vector2(-104, -296)
+rotation = 0.296706
+scale = Vector2(0.086082, 0.086082)
+sprite_frames = SubResource("SpriteFrames_f6q7b")
+
+[node name="clockTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="wakeButt" type="TextureButton" parent="."]
+offset_left = -1240.0
+offset_top = -568.0
+offset_right = 1256.0
+offset_bottom = 960.0
+
+[node name="countDown" parent="." instance=ExtResource("6_05tgf")]
+offset_top = 416.0
+offset_bottom = 416.0
+scale = Vector2(4, 1)
+
+[connection signal="timeout" from="clockTimer" to="." method="_on_clock_timer_timeout"]
+[connection signal="pressed" from="wakeButt" to="." method="_on_wake_butt_pressed"]

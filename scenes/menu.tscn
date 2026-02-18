@@ -23,6 +23,24 @@ offset_right = 264.0
 offset_bottom = -258.0
 text = "golf"
 
+[node name="job" type="Button" parent="."]
+offset_top = -251.0
+offset_right = 264.0
+offset_bottom = -214.0
+text = "job"
+
+[node name="fastFood" type="Button" parent="."]
+offset_top = -208.0
+offset_right = 264.0
+offset_bottom = -171.0
+text = "Fast Food"
+
+[node name="wake" type="Button" parent="."]
+offset_top = -163.0
+offset_right = 264.0
+offset_bottom = -126.0
+text = "Wake"
+
 [node name="laundry" type="Button" parent="."]
 offset_left = -264.0
 offset_top = -251.0
@@ -73,10 +91,18 @@ text = "Smile"
 
 [node name="randomGames" type="Button" parent="."]
 offset_left = -264.0
-offset_top = 101.0
+offset_top = 93.0
 offset_right = 264.0
-offset_bottom = 138.0
+offset_bottom = 130.0
 text = "Play Random Games
+"
+
+[node name="storyButt" type="Button" parent="."]
+offset_left = -264.0
+offset_top = 133.0
+offset_right = 264.0
+offset_bottom = 170.0
+text = "Story Menu
 "
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -85,6 +111,9 @@ zoom = Vector2(2, 2)
 
 [connection signal="pressed" from="mole" to="." method="_on_mole_pressed"]
 [connection signal="pressed" from="golf" to="." method="_on_golf_pressed"]
+[connection signal="pressed" from="job" to="." method="_on_job_pressed"]
+[connection signal="pressed" from="fastFood" to="." method="_on_fast_food_pressed"]
+[connection signal="pressed" from="wake" to="." method="_on_wake_pressed"]
 [connection signal="pressed" from="laundry" to="." method="_on_laundry_pressed"]
 [connection signal="pressed" from="urinal" to="." method="_on_urinal_pressed"]
 [connection signal="pressed" from="scare" to="." method="_on_scare_pressed"]
@@ -94,3 +123,4 @@ zoom = Vector2(2, 2)
 [connection signal="pressed" from="crash" to="." method="_on_crash_pressed"]
 [connection signal="pressed" from="smile" to="." method="_on_smile_pressed"]
 [connection signal="pressed" from="randomGames" to="." method="_on_random_games_pressed"]
+[connection signal="pressed" from="storyButt" to="." method="_on_story_butt_pressed"]

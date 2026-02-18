@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3v60wnshlktx"]
+
+[ext_resource type="Texture2D" uid="uid://bgvh0empbuu87" path="res://assets/graphic/job/Pasted image.png" id="1_bq8m8"]
+[ext_resource type="Script" path="res://scripts/job_hunt.gd" id="1_l8qar"]
+[ext_resource type="PackedScene" uid="uid://knmsxymuw3xi" path="res://scenes/count_down.tscn" id="3_qnyx1"]
+
+[node name="jobHunt" type="Node2D"]
+script = ExtResource("1_l8qar")
+
+[node name="jobBg" type="Sprite2D" parent="."]
+texture = ExtResource("1_bq8m8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1, 1.2)
+
+[node name="job1" type="TextureButton" parent="."]
+offset_left = -704.0
+offset_top = -112.0
+offset_right = -216.0
+
+[node name="job2" type="TextureButton" parent="."]
+offset_left = -696.0
+offset_top = 8.0
+offset_right = -208.0
+offset_bottom = 152.0
+
+[node name="job3" type="TextureButton" parent="."]
+offset_left = -704.0
+offset_top = 152.0
+offset_right = -216.0
+offset_bottom = 296.0
+
+[node name="job4" type="TextureButton" parent="."]
+offset_left = -696.0
+offset_top = 304.0
+offset_right = -208.0
+offset_bottom = 448.0
+
+[node name="countDown" parent="." instance=ExtResource("3_qnyx1")]
+offset_top = 384.0
+offset_bottom = 384.0
+scale = Vector2(4, 1)
+
+[node name="moveTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="job1" to="." method="_on_job_1_pressed"]
+[connection signal="pressed" from="job2" to="." method="_on_job_1_pressed"]
+[connection signal="pressed" from="job3" to="." method="_on_job_1_pressed"]
+[connection signal="pressed" from="job4" to="." method="_on_job_1_pressed"]
+[connection signal="timeout" from="moveTimer" to="." method="_on_move_timer_timeout"]

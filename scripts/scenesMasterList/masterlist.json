@@ -1,0 +1,57 @@
+{
+	"scenes":
+	[
+	{
+		"scene": "menu",
+		"tscn": "res://scenes/menu.tscn"
+	},
+	{
+		"scene": "mole",
+		"tscn": "res://scenes/mole/whack_a_mole_alt.tscn"
+	},
+	{
+		"scene": "crash",
+		"tscn": "res://scenes/carCrash/crash.tscn"
+	},
+	{
+		"scene": "laundry",
+		"tscn": "res://scenes/laundry/laundry.tscn"
+	},
+	{
+		"scene": "wake",
+		"tscn": "res://scenes/wakeUp/wake_up.tscn"
+	},
+	{
+		"scene": "urine",
+		"tscn": "res://scenes/urinal/urinal.tscn"
+	},
+	{
+		"scene": "align",
+		"tscn": "res://scenes/scare/scare_game.tscn"
+	},
+	{
+		"scene": "channel",
+		"tscn": "res://scenes/channelChange/channel_change.tscn"
+	},
+	{
+		"scene": "subway",
+		"tscn": "res://scenes/subway/subway.tscn"
+	},
+	{
+		"scene": "smile",
+		"tscn": "res://scenes/smile/smile.tscn"
+	},
+	{
+		"scene": "golf",
+		"tscn": "res://scenes/golf/golf.tscn"
+	},
+	{
+		"scene": "job",
+		"tscn": "res://scenes/job/job_hunt.tscn"
+	},
+	{
+		"scene": "fastFood",
+		"tscn": "res://scenes/fastFood/fast_food.tscn"
+	},
+	]
+}

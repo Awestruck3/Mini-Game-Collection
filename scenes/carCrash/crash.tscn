@@ -43,6 +43,7 @@ offset_bottom = 288.0
 scale = Vector2(3, 1)
 
 [node name="moveTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="personTimer" to="." method="_on_person_timer_timeout"]
 [connection signal="pressed" from="stopButt" to="." method="_on_stop_butt_pressed"]

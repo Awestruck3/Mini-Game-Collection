@@ -31,6 +31,7 @@ offset_bottom = 344.0
 
 [node name="endGameTimer" type="Timer" parent="."]
 wait_time = 0.25
+one_shot = true
 
 [node name="countDown" parent="." instance=ExtResource("4_p78ej")]
 offset_top = 288.0
